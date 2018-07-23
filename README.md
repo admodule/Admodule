@@ -2,16 +2,20 @@
 
 Add it in your root build.gradle at the end of repositories:
 
-    maven { url 'https://jitpack.io' }
-  
-    project.ext {
-        GoogleBannerAdsID = '"YOUR ADMOB GOOGLE BANNER ID"'
-        GoogleInterstitialAdsID = '"YOUR ADMOB GOOGLE INTERSTITIAL ID"'
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+        }
 
-        FacebookBannerAdsID = '"YOUR ADMOB FACEBOOK BANNER ID"'
-        FacebookInterstitialAdsID = '"YOUR ADMOB FACEBOOK INTERSTITIAL ID"'
+        project.ext {
+            GoogleBannerAdsID = '"ca-app-pub-3940256099942544/6300978111"'
+            GoogleInterstitialAdsID = '"ca-app-pub-3940256099942544/1033173712"'
+
+            FacebookBannerAdsID = '"2010034689325707_2010034965992346"'
+            FacebookInterstitialAdsID = '"172463163471184_172463380137829"'
+        }
     }
-  
   
 Add it in your APP build.gradle at the end of repositories:
 
