@@ -9,11 +9,11 @@ Add it in your root build.gradle at the end of repositories:
         }
 
         project.ext {
-            GoogleBannerAdsID = '"ca-app-pub-3940256099942544/6300978111"'
-            GoogleInterstitialAdsID = '"ca-app-pub-3940256099942544/1033173712"'
+            GoogleBannerAdsID = '"YOUR GOOGLE BANNER ID"'
+            GoogleInterstitialAdsID = '"YOUR GOOGLE INTERSTITIAL ID"'
 
-            FacebookBannerAdsID = '"2010034689325707_2010034965992346"'
-            FacebookInterstitialAdsID = '"172463163471184_172463380137829"'
+            FacebookBannerAdsID = '"YOUR FACEBOOK BANNER ID"'
+            FacebookInterstitialAdsID = '"YOUR FACEBOOK INTERSTITIAL ID"'
         }
     }
   
