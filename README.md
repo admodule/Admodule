@@ -33,6 +33,7 @@ dependencies {
       ADCaller.getInstance().IntializeApiData(MainActivity.this);
 
 => How to call method:
+
       * Google Advertising :
           GoogleAds.bannerAds(bannerAds);
           GoogleAds.interstitialAds(1);
