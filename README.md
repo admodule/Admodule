@@ -22,15 +22,18 @@ allprojects {
   
 Add it in your APP build.gradle at the end of repositories:
 
-dependencies {
-    implementation 'com.github.mayurjksol:Advertising:1.0'
-}
+  dependencies {
+      
+      implementation 'com.github.mayurjksol:Advertising:1.0'
+  }
+
 
 ====================================================================
 => get your permission for internet and write storage.
 
 => get permission then keep this line in your activity: 
-      ADCaller.getInstance().IntializeApiData(MainActivity.this);
+
+    ADCaller.getInstance().IntializeApiData(MainActivity.this);
 
 => How to call method:
 
