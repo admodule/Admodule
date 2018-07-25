@@ -46,8 +46,7 @@ public class ADCaller {
 
     public void IntializeApiData(Activity activity) {
         try {
-            Toast.makeText(activity, "Test1", Toast.LENGTH_SHORT).show();
-            
+                    
             this.activity = activity;
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 InitlaizeApiData initlaizeApiDat = new InitlaizeApiData(activity);
@@ -101,6 +100,8 @@ public class ADCaller {
 
     public void PreloardFacebookAD(final int adsNo) {
         try {
+            Toast.makeText(activity, "Test1", Toast.LENGTH_SHORT).show();
+            
             this.fb_InterstrialAdID = BuildConfig.FACEBOOK_INTERSTITIAL;
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 //----------------Fb Ad First
