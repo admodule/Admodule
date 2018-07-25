@@ -19,20 +19,25 @@ Add it in your root build.gradle at the end of repositories:
   
 Add it in your APP build.gradle at the end of repositories:
 
-      implementation 'com.github.mayurjksol:Advertising:1.0'
+      implementation 'com.github.mayurjksol:Advertising:1.0.2'
 
 => get your permission for internet and write storage.
 
 => get permission then keep this line in your activity: 
 
-    ADCaller.getInstance().IntializeApiData(MainActivity.this);
+    ADCaller.getInstance().IntializeApiData(activity);
 
 => How to call method:
 
       * Google Advertising :
-          GoogleAds.bannerAds(bannerAds);
-          GoogleAds.interstitialAds(1);
+           GoogleAds.bannerAds(layout);
+           GoogleAds.interstitialAds(1);
       
       * Facebook Advertising :
-           FacebookAds.bannerAds(bannerAds);
+           FacebookAds.bannerAds(layout);
            FacebookAds.interstitialAds(1);
+           
+      * Custom Advertising :
+           CustomAds.bannerAds(layout);
+           CustomAds.interstitialAds(1);
+           CustomAds.dialogAds(1);
