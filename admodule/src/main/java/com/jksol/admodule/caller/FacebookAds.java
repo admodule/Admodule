@@ -8,7 +8,7 @@ import com.jksol.admodule.Utills;
 
 public class FacebookAds {
     public static void bannerAds(ViewGroup bannerAds) {
-        ADCaller.getInstance().LoardBannerAd(bannerAds, BuildConfig.FACEBOOK_BANNER, "facebook");
+        ADCaller.getInstance().LoardBannerAd(bannerAds, Utills.facebook_banner_id, "facebook");
     }
 
     public static void interstitialAds(int RandomMaxNo) {

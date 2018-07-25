@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         if (!checkPermission()) {
             requestPermission();
         } else {
-            ADCaller.getInstance().IntializeApiData(MainActivity.this);
+            ADCaller.getInstance().init(MainActivity.this);
 
             GoogleAds.bannerAds(bannerAds);
             GoogleAds.interstitialAds(1);
-//
+
 //            FacebookAds.bannerAds(bannerAds);
 //            FacebookAds.interstitialAds(1);
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     boolean readAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     boolean writeAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
                     if (readAccepted && writeAccepted) {
-                        ADCaller.getInstance().IntializeApiData(MainActivity.this);
+                        ADCaller.getInstance().init(MainActivity.this);
 
                         GoogleAds.bannerAds(bannerAds);
                         GoogleAds.interstitialAds(1);

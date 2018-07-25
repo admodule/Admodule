@@ -8,7 +8,7 @@ import com.jksol.admodule.Utills;
 
 public class GoogleAds {
     public static void bannerAds(ViewGroup bannerAds) {
-        ADCaller.getInstance().LoardBannerAd(bannerAds, BuildConfig.GOOGLE_BANNER, "google");
+        ADCaller.getInstance().LoardBannerAd(bannerAds, Utills.google_banner_id, "google");
     }
 
     public static void interstitialAds(int RandomMaxNo) {

@@ -2,10 +2,15 @@ package com.jksol.admodule;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -56,9 +61,23 @@ public class ADCaller {
         return singleton;
     }
 
-    public void IntializeApiData(Activity activity) {
+    public void init(Activity activity) {
         try {
             this.activity = activity;
+
+            try {
+                ApplicationInfo ai = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
+                Bundle bundle = ai.metaData;
+
+                Utills.google_banner_id = bundle.getString("google_banner_id");
+                Utills.google_interstitial_id = bundle.getString("google_interstitial_id");
+                Utills.facebook_banner_id = bundle.getString("facebook_banner_id");
+                Utills.facebook_interstitial_id = bundle.getString("facebook_interstitial_id");
+
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
+
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 InitlaizeApiData initlaizeApiDat = new InitlaizeApiData(activity);
                 initlaizeApiDat.isFlikerDownload();
@@ -89,7 +108,7 @@ public class ADCaller {
 
     public void PreloardGoogleAD(final int adsNo) {
         try {
-            this.google_InterstrialAdID = BuildConfig.GOOGLE_INTERSTITIAL;
+            this.google_InterstrialAdID = Utills.google_interstitial_id;
 
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 //-----Google Ad First
@@ -127,7 +146,7 @@ public class ADCaller {
 
     public void PreloardFacebookAD(final int adsNo) {
         try {
-            this.fb_InterstrialAdID = BuildConfig.FACEBOOK_INTERSTITIAL;
+            this.fb_InterstrialAdID = Utills.facebook_interstitial_id;
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 //----------------Fb Ad First
                 IntilaizeFacebookInterface();

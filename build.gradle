@@ -20,14 +20,6 @@ allprojects {
         google()
         jcenter()
     }
-
-    project.ext {
-        GoogleBannerAdsID = '"ca-app-pub-3940256099942544/6300978111"'
-        GoogleInterstitialAdsID = '"ca-app-pub-3940256099942544/1033173712"'
-
-        FacebookBannerAdsID = '"2010034689325707_2010034965992346"'
-        FacebookInterstitialAdsID = '"172463163471184_172463380137829"'
-    }
 }
 
 task clean(type: Delete) {

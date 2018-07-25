@@ -16,6 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="google_banner_id"
+            android:value="ca-app-pub-3940256099942544/6300978111" />
+
+        <meta-data
+            android:name="google_interstitial_id"
+            android:value="ca-app-pub-3940256099942544/1033173123" />
+
+        <meta-data
+            android:name="facebook_banner_id"
+            android:value="2010034689325707_2010034965992346" />
+
+        <meta-data
+            android:name="facebook_interstitial_id"
+            android:value="172463163471184_172463380137829" />
     </application>
 
 </manifest>
