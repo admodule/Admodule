@@ -6,13 +6,17 @@ import com.jksol.admodule.ADCaller;
 import com.jksol.admodule.BuildConfig;
 import com.jksol.admodule.Utills;
 
-public class GoogleAds {
+public class CustomAds {
     public static void bannerAds(ViewGroup bannerAds) {
-        ADCaller.getInstance().LoardBannerAd(bannerAds, BuildConfig.GOOGLE_BANNER, "google");
+        ADCaller.getInstance().LoardBannerAd(bannerAds, "", "");
     }
 
     public static void interstitialAds(int RandomMaxNo) {
         Utills.Maintype = 1;
-        ADCaller.getInstance().PreloardGoogleAD(RandomMaxNo);
+        ADCaller.getInstance().PreloardCustomAD(RandomMaxNo);
+    }
+
+    public static void dialogAds(int adsShow){
+        ADCaller.getInstance().dialogShow(adsShow);
     }
 }

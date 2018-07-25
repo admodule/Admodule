@@ -7,6 +7,7 @@
 
 
     <color name="white">#FFF</color>
+    <color name="blue">#2583ff</color>
     <color name="off_white">#FAFAFA</color>
     <color name="off_white_dark">#BDBDBD</color>
     <color name="main_back_transparent">#50000000</color>

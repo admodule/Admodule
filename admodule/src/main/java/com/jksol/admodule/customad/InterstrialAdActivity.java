@@ -61,11 +61,12 @@ public class InterstrialAdActivity extends AppCompatActivity {
 
             if (size > 0) {
                 Random random = new Random();
-                final int pos = random.nextInt(Constants.adDataProviders.size() - 1);
-
+                int limit = Constants.adDataProviders.size() - 1;
+                if (limit != 0) {
+                    limit = random.nextInt();
+                }
                 float rate = Float.parseFloat("4." + random.nextInt(6));
-
-                final DataProvider dataProvider = Constants.adDataProviders.get(pos);
+                final DataProvider dataProvider = Constants.adDataProviders.get(limit);
                 File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + dataProvider.getFilename() + ".jpg");
                 if (jpgFile.exists()) {
                     Glide.with(getApplicationContext())

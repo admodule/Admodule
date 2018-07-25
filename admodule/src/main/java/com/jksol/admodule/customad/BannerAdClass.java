@@ -150,8 +150,13 @@ public class BannerAdClass {
 
             if (size > 0) {
                 Random random = new Random();
-                int pos = random.nextInt(Constants.adDataProviders.size() - 1);
-                final DataProvider dataProvider = Constants.adDataProviders.get(pos);
+
+                int limit = Constants.adDataProviders.size() - 1;
+                if (limit != 0) {
+                    limit = random.nextInt();
+                }
+                final DataProvider dataProvider = Constants.adDataProviders.get(limit);
+
                 File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + dataProvider.getappname() + ".jpg");
 
                 if (jpgFile.exists()) {

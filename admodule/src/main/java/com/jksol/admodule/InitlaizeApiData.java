@@ -54,7 +54,6 @@ public class InitlaizeApiData {
                     JSONArray jsonArray = photoset.getJSONArray("photo");
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-
                         DataProvider dp = new DataProvider();
 
                         String s = jsonObject1.getString("title");
@@ -62,32 +61,33 @@ public class InitlaizeApiData {
                         String index = split[0];
                         String value = split[1];
 
-                        if (index.equals("i")) {
-                            String packageName = split[2];
-                            String appname = split[3];
+                        if (!Utills.packages.contains(split[2])) {
+                            if (index.equals("i")) {
+                                String packageName = split[2];
+                                String appname = split[3];
 
-                            boolean isinstall = isAppInstalled(packageName, activity);
-                            if (!isinstall) {
+                                boolean isinstall = isAppInstalled(packageName, activity);
+                                if (!isinstall) {
+                                    dp.setFor1(value);
+                                    dp.setfarm(jsonObject1.getString("farm"));
+                                    dp.setid(jsonObject1.getString("id"));
+                                    dp.setserverid(jsonObject1.getString("server"));
+                                    dp.setsecret(jsonObject1.getString("secret"));
+                                    dp.setpackagename(packageName);
+                                    dp.setappname(appname);
+                                    dp.seturl("https://farm" + dp.getfarm() + ".staticflickr.com/" + dp.getserverid() + "/" + dp.getid() + "_" + dp.getsecret() + "_b" + ".jpg");
+                                    downloadImage(dp.geturl(), dp.getappname(), activity);
+                                    iconList.add(dp);
+                                }
+                            } else {
+                                dp.setBannerurl("https://farm" + jsonObject1.getString("farm") + ".staticflickr.com/" + jsonObject1.getString("server") + "/" + jsonObject1.getString("id") + "_" + jsonObject1.getString("secret") + "_b" + ".jpg");
+                                dp.setFilename(jsonObject1.getString("server"));
                                 dp.setFor1(value);
-                                dp.setfarm(jsonObject1.getString("farm"));
-                                dp.setid(jsonObject1.getString("id"));
-                                dp.setserverid(jsonObject1.getString("server"));
-                                dp.setsecret(jsonObject1.getString("secret"));
-                                dp.setpackagename(packageName);
-                                dp.setappname(appname);
-                                dp.seturl("https://farm" + dp.getfarm() + ".staticflickr.com/" + dp.getserverid() + "/" + dp.getid() + "_" + dp.getsecret() + "_b" + ".jpg");
-                                downloadImage(dp.geturl(), dp.getappname(), activity);
-                                iconList.add(dp);
+                                dp.setDescrip(split[2]);
+                                downloadImage(dp.getBannerurl(), jsonObject1.getString("server"), activity);
+                                descList.add(dp);
                             }
-                        } else {
-                            dp.setBannerurl("https://farm" + jsonObject1.getString("farm") + ".staticflickr.com/" + jsonObject1.getString("server") + "/" + jsonObject1.getString("id") + "_" + jsonObject1.getString("secret") + "_b" + ".jpg");
-                            dp.setFilename(jsonObject1.getString("server"));
-                            dp.setFor1(value);
-                            dp.setDescrip(split[2]);
-                            downloadImage(dp.getBannerurl(), jsonObject1.getString("server"), activity);
-                            descList.add(dp);
                         }
-
                     }
 
                     for (int indexI = 0; indexI < iconList.size(); indexI++) {
@@ -140,32 +140,33 @@ public class InitlaizeApiData {
                     String index = split[0];
                     String value = split[1];
 
-                    if (index.equals("i")) {
-                        String packageName = split[2];
-                        String appname = split[3];
+                    if (!Utills.packages.contains(split[2])) {
+                        if (index.equals("i")) {
+                            String packageName = split[2];
+                            String appname = split[3];
 
-                        boolean isinstall = isAppInstalled(packageName, activity);
-                        if (!isinstall) {
+                            boolean isinstall = isAppInstalled(packageName, activity);
+                            if (!isinstall) {
+                                dp.setFor1(value);
+                                dp.setfarm(jsonObject1.getString("farm"));
+                                dp.setid(jsonObject1.getString("id"));
+                                dp.setserverid(jsonObject1.getString("server"));
+                                dp.setsecret(jsonObject1.getString("secret"));
+                                dp.setpackagename(packageName);
+                                dp.setappname(appname);
+                                dp.seturl("https://farm" + dp.getfarm() + ".staticflickr.com/" + dp.getserverid() + "/" + dp.getid() + "_" + dp.getsecret() + "_b" + ".jpg");
+                                downloadImage(dp.geturl(), dp.getappname(), activity);
+                                iconList.add(dp);
+                            }
+                        } else {
+                            dp.setBannerurl("https://farm" + jsonObject1.getString("farm") + ".staticflickr.com/" + jsonObject1.getString("server") + "/" + jsonObject1.getString("id") + "_" + jsonObject1.getString("secret") + "_b" + ".jpg");
+                            dp.setFilename(jsonObject1.getString("server"));
                             dp.setFor1(value);
-                            dp.setfarm(jsonObject1.getString("farm"));
-                            dp.setid(jsonObject1.getString("id"));
-                            dp.setserverid(jsonObject1.getString("server"));
-                            dp.setsecret(jsonObject1.getString("secret"));
-                            dp.setpackagename(packageName);
-                            dp.setappname(appname);
-                            dp.seturl("https://farm" + dp.getfarm() + ".staticflickr.com/" + dp.getserverid() + "/" + dp.getid() + "_" + dp.getsecret() + "_b" + ".jpg");
-                            downloadImage(dp.geturl(), dp.getappname(), activity);
-                            iconList.add(dp);
+                            dp.setDescrip(split[2]);
+                            downloadImage(dp.getBannerurl(), jsonObject1.getString("server"), activity);
+                            descList.add(dp);
                         }
-                    } else {
-                        dp.setBannerurl("https://farm" + jsonObject1.getString("farm") + ".staticflickr.com/" + jsonObject1.getString("server") + "/" + jsonObject1.getString("id") + "_" + jsonObject1.getString("secret") + "_b" + ".jpg");
-                        dp.setFilename(jsonObject1.getString("server"));
-                        dp.setFor1(value);
-                        dp.setDescrip(split[2]);
-                        downloadImage(dp.getBannerurl(), jsonObject1.getString("server"), activity);
-                        descList.add(dp);
                     }
-
                 }
 
                 for (int indexI = 0; indexI < iconList.size(); indexI++) {
