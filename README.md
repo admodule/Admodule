@@ -6,26 +6,37 @@ Add it in your root build.gradle at the end of repositories:
         repositories {
             google()
             jcenter()
-        }
-
-        project.ext {
-            GoogleBannerAdsID = '"YOUR GOOGLE BANNER ID"'
-            GoogleInterstitialAdsID = '"YOUR GOOGLE INTERSTITIAL ID"'
-
-            FacebookBannerAdsID = '"YOUR FACEBOOK BANNER ID"'
-            FacebookInterstitialAdsID = '"YOUR FACEBOOK INTERSTITIAL ID"'
+            maven { url 'https://jitpack.io' }
         }
     }
   
 Add it in your APP build.gradle at the end of repositories:
 
-      implementation 'com.github.mayurjksol:Advertising:1.0.2'
+      implementation 'com.github.mayurjksol:Advertising:1.1.2'
+
+=> AndroidManifest.xml
+
+        <meta-data
+            android:name="google_banner_id"
+            android:value="YOUR GOOGLE BANNER ID" />
+
+        <meta-data
+            android:name="google_interstitial_id"
+            android:value="YOUR GOOGLE INTERSTITIAL ID" />
+
+        <meta-data
+            android:name="facebook_banner_id"
+            android:value="YOUR FACEBOOK BANNER ID" />
+
+        <meta-data
+            android:name="facebook_interstitial_id"
+            android:value="YOUR FACEBOOK INTERSTITIAL ID" />
 
 => get your permission for internet and write storage.
 
 => get permission then keep this line in your activity: 
 
-    ADCaller.getInstance().IntializeApiData(activity);
+    ADCaller.getInstance().init(activity);
 
 => How to call method:
 
