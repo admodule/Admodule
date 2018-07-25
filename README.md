@@ -30,14 +30,14 @@ Add it in your APP build.gradle at the end of repositories:
 => How to call method:
 
       * Google Advertising :
-          GoogleAds.bannerAds(layout);
-          GoogleAds.interstitialAds(1);
+           GoogleAds.bannerAds(layout);
+           GoogleAds.interstitialAds(1);
       
       * Facebook Advertising :
            FacebookAds.bannerAds(layout);
            FacebookAds.interstitialAds(1);
            
-      *Custom Advertising :
+      * Custom Advertising :
            CustomAds.bannerAds(layout);
            CustomAds.interstitialAds(1);
            CustomAds.dialogAds(1);
