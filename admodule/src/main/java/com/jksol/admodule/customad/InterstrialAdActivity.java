@@ -1,6 +1,7 @@
 package com.jksol.admodule.customad;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class InterstrialAdActivity extends AppCompatActivity {
@@ -57,27 +59,37 @@ public class InterstrialAdActivity extends AppCompatActivity {
         rootview = findViewById(R.id.rootview);
 
         try {
-            int size = Constants.adDataProviders.size();
+            int size = Constants.interstitialList.size();
 
             if (size > 0) {
                 Random random = new Random();
-                int limit = Constants.adDataProviders.size() - 1;
+                int limit = Constants.interstitialList.size() - 1;
                 if (limit != 0) {
-                    limit = random.nextInt();
+                    limit = random.nextInt(limit);
                 }
+                final DataProvider dataProvider = Constants.interstitialList.get(limit);
+
                 float rate = Float.parseFloat("4." + random.nextInt(6));
-                final DataProvider dataProvider = Constants.adDataProviders.get(limit);
-                File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + dataProvider.getFilename() + ".jpg");
+                File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + "I_" + dataProvider.getAppname() + ".jpg");
                 if (jpgFile.exists()) {
                     Glide.with(getApplicationContext())
                             .load(jpgFile)
                             .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL))
                             .into(mIvImage1);
 
-                    mTvAppname.setText(dataProvider.getappname());
-                    mTvDiscription.setText(dataProvider.getDescrip());
+                    Typeface titleFont = Typeface.createFromAsset(getAssets(), "textfont/" + getString(R.string.font));
+
+                    mTvAppname.setText(dataProvider.getAppname());
+                    mTvDiscription.setText(dataProvider.getDescription());
                     mRatingbar1.setRating(rate);
-                    mTvDownloads.setText("");
+
+                    mTvAppname.setTypeface(titleFont);
+                    mTvDiscription.setTypeface(titleFont);
+
+                    int tDownload = 1000 + random.nextInt(99000);
+                    DecimalFormat decimalFormat = new DecimalFormat("#,##,###");
+
+                    mTvDownloads.setText("(" + decimalFormat.format(tDownload) + ")");
 
                     mIvClose.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -89,7 +101,7 @@ public class InterstrialAdActivity extends AppCompatActivity {
                     rootview.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getpackagename();
+                            String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getPackagename();
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));
                             startActivity(i);
@@ -100,6 +112,7 @@ public class InterstrialAdActivity extends AppCompatActivity {
                 }
             }
         } catch (Exception w) {
+            w.printStackTrace();
         }
     }
 }

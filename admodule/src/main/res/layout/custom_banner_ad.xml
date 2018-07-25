@@ -27,6 +27,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginLeft="3dp"
         android:layout_weight="0.6">
 
         <RelativeLayout
@@ -39,7 +40,8 @@
                 android:layout_height="wrap_content"
                 android:padding="1dp"
                 android:text="AppName"
-                android:textColor="#000" />
+                android:textColor="#000"
+                android:textSize="16sp" />
 
             <RatingBar
                 android:id="@+id/ratingbar1"
@@ -62,7 +64,7 @@
                 android:layout_below="@id/txt_Apptitle"
                 android:maxLines="2"
                 android:paddingLeft="1dp"
-                android:textColor="#9f9f9f"
+                android:textColor="@color/colorText"
                 android:textSize="10sp" />
 
         </RelativeLayout>
@@ -77,7 +79,7 @@
             android:id="@+id/btn_install"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="#2c56ff"
+            android:background="@color/colorGreen"
             android:text="Install"
             android:textAllCaps="false"
             android:textColor="@color/white"

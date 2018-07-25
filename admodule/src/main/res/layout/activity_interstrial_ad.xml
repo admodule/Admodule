@@ -23,8 +23,8 @@
             <ImageView
                 android:id="@+id/iv_image1"
                 android:layout_width="match_parent"
-                android:scaleType="fitXY"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
         </LinearLayout>
 
         <LinearLayout
@@ -54,8 +54,7 @@
                         android:text="App name "
                         android:textColor="@android:color/black"
                         android:textSize="30sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -71,6 +70,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
+                            android:layout_gravity="center"
                             android:numStars="5"
                             android:rating="3.5"
                             android:stepSize="0.5"
@@ -80,6 +80,7 @@
                             android:id="@+id/tv_downloads"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:layout_marginLeft="5dp"
                             android:text="(958,441)" />
                     </LinearLayout>
@@ -89,11 +90,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:textSize="18sp"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:gravity="center"
-                        android:text="@string/discription1" />
+                        android:text="@string/discription1"
+                        android:textColor="@color/colorText"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
 
@@ -134,7 +136,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="5"
-                            android:background="@color/colorPrimary">
+                            android:background="@color/colorGreen">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -163,23 +165,24 @@
                             android:layout_height="50dp"
                             android:contentDescription="@string/todo"
                             android:src="@drawable/ic_round"
-                            android:tint="@color/colorPrimary"/>
+                            android:tint="@color/white" />
 
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:contentDescription="@string/todo"
-                            android:src="@drawable/ic_dwnicon" />
+                            android:src="@drawable/ic_dwnicon"
+                            android:tint="@color/colorGreen" />
 
 
                     </FrameLayout>
 
 
                     <TextView
-                        android:layout_below="@id/frm_download"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:layout_below="@id/frm_download"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="25dp"
                         android:text="Install"
@@ -213,8 +216,8 @@
         android:background="#F7B731"
         android:padding="2dp"
         android:text="Ad"
-        android:textSize="10sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="10sp" />
 
 
 </RelativeLayout>

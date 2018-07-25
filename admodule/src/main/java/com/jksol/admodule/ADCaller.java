@@ -252,7 +252,7 @@ public class ADCaller {
     public void customInterstrial() {
         try {
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
-                if (Constants.adDataProviders.size() > 0) {
+                if (Constants.interstitialList.size() > 0) {
                     Intent intent = new Intent(activity, InterstrialAdActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     activity.startActivity(intent);
@@ -288,14 +288,14 @@ public class ADCaller {
             no = 1;
         }
         if (no == 1) {
-            int size = Constants.adDataProviders.size();
+            int size = Constants.dialogList.size();
             if (size > 0) {
-                int limit = Constants.adDataProviders.size() - 1;
+                int limit = Constants.dialogList.size() - 1;
                 if (limit != 0) {
-                    limit = random.nextInt();
+                    limit = random.nextInt(limit);
                 }
-                final DataProvider dataProvider = Constants.adDataProviders.get(limit);
-                File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + dataProvider.getappname() + ".jpg");
+                final DataProvider dataProvider = Constants.dialogList.get(limit);
+                File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + "D_" + dataProvider.getAppname() + ".jpg");
 
                 final Dialog dialog = new Dialog(activity);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -317,8 +317,8 @@ public class ADCaller {
                             .load(jpgFile)
                             .into(appicon);
 
-                    appname.setText(dataProvider.getappname());
-                    appdescirp.setText(dataProvider.getDescrip());
+                    appname.setText(dataProvider.getAppname());
+                    appdescirp.setText(dataProvider.getDescription());
 
                     appname.setTypeface(titleFont);
                     appdescirp.setTypeface(titleFont);
@@ -326,7 +326,7 @@ public class ADCaller {
                     appinstallbtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getpackagename();
+                            String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getPackagename();
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));
                             activity.startActivity(i);

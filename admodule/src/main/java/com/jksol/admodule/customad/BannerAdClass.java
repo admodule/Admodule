@@ -2,6 +2,7 @@ package com.jksol.admodule.customad;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.view.View;
 import android.view.ViewGroup;
@@ -146,31 +147,36 @@ public class BannerAdClass {
             adViewLayout = view.findViewById(R.id.adViewLayout);
             txt_descrip = view.findViewById(R.id.txt_descrip);
 
-            int size = Constants.adDataProviders.size();
+            int size = Constants.bannerList.size();
 
             if (size > 0) {
                 Random random = new Random();
 
-                int limit = Constants.adDataProviders.size() - 1;
+                int limit = Constants.bannerList.size() - 1;
                 if (limit != 0) {
-                    limit = random.nextInt();
+                    limit = random.nextInt(limit);
                 }
-                final DataProvider dataProvider = Constants.adDataProviders.get(limit);
+                final DataProvider dataProvider = Constants.bannerList.get(limit);
 
-                File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + dataProvider.getappname() + ".jpg");
+                File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + "B_" + dataProvider.getAppname() + ".jpg");
 
                 if (jpgFile.exists()) {
                     Glide.with(activity)
                             .load(jpgFile)
                             .into(appicon);
 
-                    txtApptitle.setText(dataProvider.getappname());
-                    txt_descrip.setText(dataProvider.getDescrip());
+                    Typeface titleFont = Typeface.createFromAsset(activity.getAssets(), "textfont/" + activity.getString(R.string.font));
+
+                    txtApptitle.setText(dataProvider.getAppname());
+                    txt_descrip.setText(dataProvider.getDescription());
+
+                    txtApptitle.setTypeface(titleFont);
+                    txt_descrip.setTypeface(titleFont);
 
                     btn_install.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getpackagename();
+                            String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getPackagename();
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));
                             activity.startActivity(i);

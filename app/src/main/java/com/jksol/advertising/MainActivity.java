@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.jksol.admodule.ADCaller;
 import com.jksol.admodule.caller.CustomAds;
+import com.jksol.admodule.caller.FacebookAds;
 import com.jksol.admodule.caller.GoogleAds;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -36,16 +37,16 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ADCaller.getInstance().IntializeApiData(MainActivity.this);
 
-//            GoogleAds.bannerAds(bannerAds);
-//            GoogleAds.interstitialAds(1);
-
+            GoogleAds.bannerAds(bannerAds);
+            GoogleAds.interstitialAds(1);
+//
 //            FacebookAds.bannerAds(bannerAds);
 //            FacebookAds.interstitialAds(1);
 
-            CustomAds.bannerAds(bannerAds);
-            CustomAds.interstitialAds(1);
-
-            CustomAds.dialogAds(1);
+//            CustomAds.bannerAds(bannerAds);
+//            CustomAds.interstitialAds(1);
+//
+//            CustomAds.dialogAds(1);
         }
     }
 

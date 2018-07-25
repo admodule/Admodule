@@ -5,7 +5,8 @@
     <color name="colorPrimaryDark">#47b453</color>
     <color name="colorAccent">#33334C</color>
 
-
+    <color name="colorGreen">#47b453</color>
+    <color name="colorText">#4a4b4a</color>
     <color name="white">#FFF</color>
     <color name="blue">#2583ff</color>
     <color name="off_white">#FAFAFA</color>

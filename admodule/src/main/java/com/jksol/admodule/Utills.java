@@ -22,5 +22,5 @@ public class Utills {
     public static int Maintype = 1;  //---1 = googe , 2 ==facebook
 
 
-    public static List<String> packages = Arrays.asList("com.tictactoe.emoji");
+    public static List<String> packages = Arrays.asList("");
 }
