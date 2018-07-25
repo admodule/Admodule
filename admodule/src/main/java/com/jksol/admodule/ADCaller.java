@@ -1,23 +1,12 @@
 package com.jksol.admodule;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Handler;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.util.Util;
+import com.jksol.admodule.BuildConfig;
 import com.jksol.admodule.classes.Constants;
-import com.jksol.admodule.classes.DataProvider;
 import com.jksol.admodule.customad.AdManager;
 import com.jksol.admodule.customad.BannerAdClass;
 import com.jksol.admodule.customad.FbADmanager;
@@ -28,7 +17,6 @@ import com.jksol.admodule.interfaceclass.GoogleCallBackEvent;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
-import java.io.File;
 import java.util.Random;
 
 /**
@@ -58,9 +46,6 @@ public class ADCaller {
 
     public void IntializeApiData(Activity activity) {
         try {
-
-            Toast.makeText(activity, "Test1", Toast.LENGTH_SHORT).show();
-
             this.activity = activity;
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 InitlaizeApiData initlaizeApiDat = new InitlaizeApiData(activity);
@@ -111,22 +96,6 @@ public class ADCaller {
         } catch (Exception e) {
         }
     }
-
-    public void PreloardCustomAD(final int adsNo) {
-        try {
-            if (new ConnectionDetector(activity).isConnectingToInternet()) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Utills.Subtype = 3;
-                        ShowAd(adsNo);
-                    }
-                }, 2000);
-            }
-        } catch (Exception e) {
-        }
-    }
-
 
     public void PreloardFacebookAD(final int adsNo) {
         try {
@@ -244,7 +213,6 @@ public class ADCaller {
                         adManager.SetListener(googleCallBackEvent);
                         adManager.createAd(activity, google_InterstrialAdID);
                     } else {
-                        Utills.Subtype = 3;
                         customInterstrial();
                     }
                 }
@@ -254,22 +222,13 @@ public class ADCaller {
 
     public void customInterstrial() {
         try {
-            if (new ConnectionDetector(activity).isConnectingToInternet()) {
-                if (Constants.adDataProviders.size() > 0) {
-                    Intent intent = new Intent(activity, InterstrialAdActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    activity.startActivity(intent);
-                } else {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            customInterstrial();
-                        }
-                    }, 4000);
-                }
+            if (new ConnectionDetector(activity).isConnectingToInternet() && Constants.adDataProviders.size() > 0) {
+                Intent intent = new Intent(activity, InterstrialAdActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                activity.startActivity(intent);
             }
         } catch (Exception e) {
-            customInterstrial();//---loard google if failed custom ad
+            Utills.Subtype = 1;//---loard google if failed custom ad
         }
     }
 
@@ -281,74 +240,6 @@ public class ADCaller {
                 nativeAdClass.refreshAd(view, Native_ADUnit_Id);
             }
         } catch (Exception e) {
-        }
-    }
-
-    public void dialogShow(int adsShow) {
-        Random random = new Random();
-        int no = random.nextInt(adsShow);
-        if (no == 0) {
-            no = 1;
-        }
-        if (no == 1) {
-            int size = Constants.adDataProviders.size();
-            if (size > 0) {
-                int limit = Constants.adDataProviders.size() - 1;
-                if (limit != 0) {
-                    limit = random.nextInt();
-                }
-                final DataProvider dataProvider = Constants.adDataProviders.get(limit);
-                File jpgFile = new File(Constants.PARENT_DIR + Constants.AD_DIR + dataProvider.getappname() + ".jpg");
-
-                final Dialog dialog = new Dialog(activity);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                View view = activity.getLayoutInflater().inflate(R.layout.dialog_ads, null);
-                dialog.setCancelable(false);
-                dialog.setContentView(view);
-                dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-
-                Typeface titleFont = Typeface.createFromAsset(activity.getAssets(), "textfont/" + activity.getString(R.string.font));
-
-                TextView appcancelbtn = dialog.findViewById(R.id.appcancelbtn);
-                ImageView appicon = dialog.findViewById(R.id.appicon);
-                TextView appname = dialog.findViewById(R.id.appname);
-                TextView appdescirp = dialog.findViewById(R.id.appdescirp);
-                TextView appinstallbtn = dialog.findViewById(R.id.appinstallbtn);
-
-                if (jpgFile.exists()) {
-                    Glide.with(activity)
-                            .load(jpgFile)
-                            .into(appicon);
-
-                    appname.setText(dataProvider.getappname());
-                    appdescirp.setText(dataProvider.getDescrip());
-
-                    appname.setTypeface(titleFont);
-                    appdescirp.setTypeface(titleFont);
-
-                    appinstallbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getpackagename();
-                            Intent i = new Intent(Intent.ACTION_VIEW);
-                            i.setData(Uri.parse(url));
-                            activity.startActivity(i);
-                        }
-                    });
-
-                    appcancelbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            dialog.dismiss();
-                        }
-                    });
-
-                    dialog.show();
-                } else {
-                    dialog.dismiss();
-                    dialogShow(adsShow);
-                }
-            }
         }
     }
 }
