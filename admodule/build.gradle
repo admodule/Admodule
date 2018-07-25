@@ -11,7 +11,7 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "GOOGLE_BANNER", project.GoogleBannerAdsID
+        buildConfigField "String", "GOOGLE_BANNER", project.ext.GoogleBannerAdsID
         buildConfigField "String", "GOOGLE_INTERSTITIAL", project.ext.GoogleInterstitialAdsID
         buildConfigField "String", "FACEBOOK_BANNER", project.ext.FacebookBannerAdsID
         buildConfigField "String", "FACEBOOK_INTERSTITIAL", project.ext.FacebookInterstitialAdsID

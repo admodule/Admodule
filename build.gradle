@@ -22,7 +22,7 @@ allprojects {
     }
 
     project.ext {
-//        GoogleBannerAdsID = '"ca-app-pub-3940256099942544/6300978111"'
+        GoogleBannerAdsID = '"ca-app-pub-3940256099942544/6300978111"'
         GoogleInterstitialAdsID = '"ca-app-pub-3940256099942544/1033173712"'
 
         FacebookBannerAdsID = '"2010034689325707_2010034965992346"'
