@@ -12,7 +12,7 @@ Add it in your root build.gradle at the end of repositories:
   
 Add it in your APP build.gradle at the end of repositories:
 
-      implementation 'com.github.admodule:Admodule:1.1'
+      implementation 'com.github.admodule:Admodule:1.2'
 
 => AndroidManifest.xml
 
@@ -37,6 +37,17 @@ Add it in your APP build.gradle at the end of repositories:
 => get permission then keep this line in your activity: 
 
     ADCaller.getInstance().init(activity);
+
+=> banner ads layout .xml file :
+        
+    <RelativeLayout
+        android:id="@+id/layout_bannerAds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+       
+=> .java file :
+     
+    RelativeLayout layout_bannerAds = findViewById(R.id.layout_bannerAds);
 
 => How to call method:
 
