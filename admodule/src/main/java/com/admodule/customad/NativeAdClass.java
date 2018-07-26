@@ -1,4 +1,4 @@
-package com.jksol.admodule.customad;
+package com.admodule.customad;
 
 import android.app.Activity;
 import android.util.Log;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.jksol.admodule.R;
+import com.admodule.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;

@@ -1,8 +1,8 @@
-package com.jksol.admodule.customad;
+package com.admodule.customad;
 
 import android.content.Context;
 
-import com.jksol.admodule.interfaceclass.GoogleCallBackEvent;
+import com.admodule.interfaceclass.GoogleCallBackEvent;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;

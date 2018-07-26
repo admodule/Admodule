@@ -1,4 +1,4 @@
-package com.jksol.admodule;
+package com.admodule;
 
 import android.app.Activity;
 import android.app.DownloadManager;
@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 
-import com.jksol.admodule.classes.Constants;
-import com.jksol.admodule.classes.DataProvider;
+import com.admodule.classes.Constants;
+import com.admodule.classes.DataProvider;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 

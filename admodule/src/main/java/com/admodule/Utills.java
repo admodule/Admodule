@@ -1,4 +1,4 @@
-package com.jksol.admodule;
+package com.admodule;
 
 import java.util.Arrays;
 import java.util.List;

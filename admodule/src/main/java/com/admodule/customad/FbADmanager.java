@@ -1,9 +1,9 @@
-package com.jksol.admodule.customad;
+package com.admodule.customad;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.jksol.admodule.interfaceclass.FacebookCallBackEvent;
+import com.admodule.interfaceclass.FacebookCallBackEvent;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.InterstitialAdListener;

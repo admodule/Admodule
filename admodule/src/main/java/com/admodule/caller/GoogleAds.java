@@ -1,10 +1,10 @@
-package com.jksol.admodule.caller;
+package com.admodule.caller;
 
 import android.view.ViewGroup;
 
-import com.jksol.admodule.ADCaller;
-import com.jksol.admodule.BuildConfig;
-import com.jksol.admodule.Utills;
+import com.admodule.ADCaller;
+import com.admodule.BuildConfig;
+import com.admodule.Utills;
 
 public class GoogleAds {
     public static void bannerAds(ViewGroup bannerAds) {

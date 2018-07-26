@@ -1,4 +1,4 @@
-package com.jksol.admodule.customad;
+package com.admodule.customad;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,9 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.jksol.admodule.R;
-import com.jksol.admodule.classes.Constants;
-import com.jksol.admodule.classes.DataProvider;
+import com.admodule.R;
+import com.admodule.classes.Constants;
+import com.admodule.classes.DataProvider;
 import com.bumptech.glide.Glide;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;

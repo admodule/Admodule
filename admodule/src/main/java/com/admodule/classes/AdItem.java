@@ -1,4 +1,4 @@
-package com.jksol.admodule.classes;
+package com.admodule.classes;
 
 /**
  * Created by pratik on 28-04-18.

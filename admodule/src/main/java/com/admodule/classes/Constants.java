@@ -1,4 +1,4 @@
-package com.jksol.admodule.classes;
+package com.admodule.classes;
 
 
 import android.os.Environment;

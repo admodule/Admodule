@@ -1,4 +1,4 @@
-package com.jksol.admodule;
+package com.admodule;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -21,15 +21,15 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.util.Util;
-import com.jksol.admodule.classes.Constants;
-import com.jksol.admodule.classes.DataProvider;
-import com.jksol.admodule.customad.AdManager;
-import com.jksol.admodule.customad.BannerAdClass;
-import com.jksol.admodule.customad.FbADmanager;
-import com.jksol.admodule.customad.InterstrialAdActivity;
-import com.jksol.admodule.customad.NativeAdClass;
-import com.jksol.admodule.interfaceclass.FacebookCallBackEvent;
-import com.jksol.admodule.interfaceclass.GoogleCallBackEvent;
+import com.admodule.classes.Constants;
+import com.admodule.classes.DataProvider;
+import com.admodule.customad.AdManager;
+import com.admodule.customad.BannerAdClass;
+import com.admodule.customad.FbADmanager;
+import com.admodule.customad.InterstrialAdActivity;
+import com.admodule.customad.NativeAdClass;
+import com.admodule.interfaceclass.FacebookCallBackEvent;
+import com.admodule.interfaceclass.GoogleCallBackEvent;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 

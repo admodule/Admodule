@@ -1,4 +1,4 @@
-package com.jksol.admodule.interfaceclass;
+package com.admodule.interfaceclass;
 
 /**
  * Created by pratik on 03-05-18.

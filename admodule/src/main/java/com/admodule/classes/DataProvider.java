@@ -1,4 +1,4 @@
-package com.jksol.admodule.classes;
+package com.admodule.classes;
 
 public class DataProvider {
     private String appname;

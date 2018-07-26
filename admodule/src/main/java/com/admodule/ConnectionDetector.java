@@ -1,4 +1,4 @@
-package com.jksol.admodule;
+package com.admodule;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

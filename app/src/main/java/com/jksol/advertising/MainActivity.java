@@ -11,10 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
-import com.jksol.admodule.ADCaller;
-import com.jksol.admodule.caller.CustomAds;
-import com.jksol.admodule.caller.FacebookAds;
-import com.jksol.admodule.caller.GoogleAds;
+import com.admodule.ADCaller;
+import com.admodule.caller.CustomAds;
+import com.admodule.caller.FacebookAds;
+import com.admodule.caller.GoogleAds;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 //            CustomAds.bannerAds(bannerAds);
 //            CustomAds.interstitialAds(1);
 //
-//            CustomAds.dialogAds(1);
+            CustomAds.dialogAds(1);
         }
     }
 
