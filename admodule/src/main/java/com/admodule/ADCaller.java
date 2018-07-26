@@ -78,6 +78,16 @@ public class ADCaller {
                 t.printStackTrace();
             }
 
+            InitializeGoogleInterface();
+            AdManager adManager = AdManager.getInstance();
+            adManager.SetListener(googleCallBackEvent);
+            adManager.createAd(activity, google_InterstrialAdID);
+
+            IntilaizeFacebookInterface();
+            FbADmanager fbADmanager = FbADmanager.getInstance();
+            fbADmanager.SetListener(facebookCallBackEvent);
+            fbADmanager.createAd(activity, fb_InterstrialAdID);
+
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 InitlaizeApiData initlaizeApiDat = new InitlaizeApiData(activity);
                 initlaizeApiDat.isFlikerDownload();
@@ -112,10 +122,6 @@ public class ADCaller {
 
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 //-----Google Ad First
-                InitializeGoogleInterface();
-                AdManager adManager = AdManager.getInstance();
-                adManager.SetListener(googleCallBackEvent);
-                adManager.createAd(activity, google_InterstrialAdID);
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -124,6 +130,11 @@ public class ADCaller {
                         ShowAd(adsNo);
                     }
                 }, 2000);
+
+                InitializeGoogleInterface();
+                AdManager adManager = AdManager.getInstance();
+                adManager.SetListener(googleCallBackEvent);
+                adManager.createAd(activity, google_InterstrialAdID);
             }
         } catch (Exception e) {
         }
@@ -150,10 +161,6 @@ public class ADCaller {
             this.fb_InterstrialAdID = Utills.facebook_interstitial_id;
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 //----------------Fb Ad First
-                IntilaizeFacebookInterface();
-                FbADmanager fbADmanager = FbADmanager.getInstance();
-                fbADmanager.SetListener(facebookCallBackEvent);
-                fbADmanager.createAd(activity, fb_InterstrialAdID);
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -162,6 +169,11 @@ public class ADCaller {
                         ShowAd(adsNo);
                     }
                 }, 2000);
+
+                IntilaizeFacebookInterface();
+                FbADmanager fbADmanager = FbADmanager.getInstance();
+                fbADmanager.SetListener(facebookCallBackEvent);
+                fbADmanager.createAd(activity, fb_InterstrialAdID);
             }
         } catch (Exception e) {
         }
