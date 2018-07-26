@@ -23,7 +23,7 @@
 
         <meta-data
             android:name="google_interstitial_id"
-            android:value="ca-app-pub-3940256099942544/1033173123" />
+            android:value="ca-app-pub-3940256099942544/1033173712" />
 
         <meta-data
             android:name="facebook_banner_id"

@@ -120,9 +120,10 @@ public class ADCaller {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        Utills.Subtype = 1;
                         ShowAd(adsNo);
                     }
-                }, 4000);
+                }, 2000);
             }
         } catch (Exception e) {
         }
@@ -137,7 +138,7 @@ public class ADCaller {
                         Utills.Subtype = 3;
                         ShowAd(adsNo);
                     }
-                }, 2000);
+                }, 1000);
             }
         } catch (Exception e) {
         }
@@ -160,7 +161,7 @@ public class ADCaller {
                         Utills.Subtype = 2;
                         ShowAd(adsNo);
                     }
-                }, 4000);
+                }, 2000);
             }
         } catch (Exception e) {
         }
@@ -281,7 +282,7 @@ public class ADCaller {
                         public void run() {
                             customInterstrial();
                         }
-                    }, 4000);
+                    }, 3000);
                 }
             }
         } catch (Exception e) {

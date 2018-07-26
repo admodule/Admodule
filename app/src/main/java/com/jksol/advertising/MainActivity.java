@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 //            CustomAds.bannerAds(bannerAds);
 //            CustomAds.interstitialAds(1);
 //
-            CustomAds.dialogAds(1);
+//            CustomAds.dialogAds(1);
         }
     }
 
