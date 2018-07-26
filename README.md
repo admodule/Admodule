@@ -38,6 +38,17 @@ Add it in your APP build.gradle at the end of repositories:
 
     ADCaller.getInstance().init(activity);
 
+=> banner ads layout .xml file :
+        
+    <RelativeLayout
+        android:id="@+id/layout_bannerAds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+       
+=> .java file :
+     
+    RelativeLayout layout_bannerAds = findViewById(R.id.layout_bannerAds);
+
 => How to call method:
 
       * Google Advertising :
