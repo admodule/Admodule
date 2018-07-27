@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.AdListener;
+import com.facebook.ads.AdSettings;
 import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
 import com.google.android.gms.ads.AdRequest;
@@ -46,32 +47,33 @@ public class BannerAdClass {
         this.activity = activity;
     }
 
-    public void ShowBannerAd(final ViewGroup viewGroup, String BannerId, String type) {
+    public void ShowBannerAd(final ViewGroup viewGroup, String BannerId, String type, int mainType) {
 
         this.viewGroup = viewGroup;
         this.BannerId = BannerId;
         this.type = type;
 
         if (this.type.equals("google")) {
-            google();
+            google(mainType);
+        } else if (this.type.equals("facebook")) {
+            facebook(mainType);
         } else {
-            facebook();
+            LoardEvent(mainType);
         }
 
     }
 
-    public void google() {
+    public void google(final int mainType) {
         final com.google.android.gms.ads.AdView mAdView = new com.google.android.gms.ads.AdView(activity);
         mAdView.setAdSize(com.google.android.gms.ads.AdSize.SMART_BANNER);
         mAdView.setAdUnitId(BannerId);
-        viewGroup.addView(mAdView);
-
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         mAdView.setAdListener(new com.google.android.gms.ads.AdListener() {
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
+                viewGroup.addView(mAdView);
                 viewGroup.setVisibility(View.VISIBLE);
             }
 
@@ -79,7 +81,11 @@ public class BannerAdClass {
             public void onAdFailedToLoad(int errorCode) {
                 // Code to be executed when an ad request fails.
                 mAdView.setVisibility(View.GONE);
-                LoardEvent();
+                if (mainType == 1 || mainType == 3) {
+                    facebook(1);
+                } else if (mainType == 2) {
+                    LoardEvent(2);
+                }
             }
 
             @Override
@@ -101,22 +107,24 @@ public class BannerAdClass {
         });
     }
 
-    public void facebook() {
-//        AdSettings.addTestDevice("2a0f42de-bc31-44dd-8c5e-27460307cceb");
+    public void facebook(final int mainType) {
+        AdSettings.addTestDevice("cf4cf9f0-e8cb-43db-a1e0-3bbbdb028f3e");
         final AdView adView = new AdView(activity, BannerId, AdSize.BANNER_HEIGHT_50);
-        viewGroup.addView(adView);
-        viewGroup.setVisibility(View.GONE);
+
         adView.setAdListener(new AdListener() {
             @Override
             public void onError(Ad ad, AdError adError) {
                 //Log.e("AdError", adError.getErrorMessage());
                 adView.setVisibility(View.GONE);
-                LoardEvent();
+                if (mainType == 1) {
+                    LoardEvent(mainType);
+                }
 
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
+                viewGroup.addView(adView);
                 viewGroup.setVisibility(View.VISIBLE);
             }
 
@@ -134,7 +142,7 @@ public class BannerAdClass {
         adView.loadAd();
     }
 
-    public void LoardEvent() {
+    public void LoardEvent(int mainType) {
         try {
 
             View view = activity.getLayoutInflater().inflate(R.layout.custom_banner_ad, null);
@@ -187,7 +195,9 @@ public class BannerAdClass {
                     viewGroup.setVisibility(View.VISIBLE);
                 } else {
                     adViewLayout.setVisibility(View.GONE);
-                    LoardEvent();
+                    if (mainType == 3) {
+                        google(3);
+                    }
                 }
             }
         } catch (Exception w) {

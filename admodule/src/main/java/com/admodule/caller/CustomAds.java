@@ -8,15 +8,14 @@ import com.admodule.Utills;
 
 public class CustomAds {
     public static void bannerAds(ViewGroup bannerAds) {
-        ADCaller.getInstance().LoardBannerAd(bannerAds, "", "");
+        ADCaller.getInstance().LoardBannerAd(bannerAds, "", "", 3);
     }
 
     public static void interstitialAds(int RandomMaxNo) {
-        Utills.Maintype = 1;
         ADCaller.getInstance().PreloardCustomAD(RandomMaxNo);
     }
 
-    public static void dialogAds(int adsShow){
+    public static void dialogAds(int adsShow) {
         ADCaller.getInstance().dialogShow(adsShow);
     }
 }

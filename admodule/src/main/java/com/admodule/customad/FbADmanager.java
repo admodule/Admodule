@@ -45,7 +45,7 @@ public class FbADmanager {
 
             interstitialAd = new com.facebook.ads.InterstitialAd(context, FabId);
             // Set listeners for the Interstitial Ad
-//            AdSettings.addTestDevice("2a0f42de-bc31-44dd-8c5e-27460307cceb");
+//            AdSettings.addTestDevice("b734aab1-07c6-4755-91f6-55a0e5d52808");
             interstitialAd.setAdListener(new InterstitialAdListener() {
                 @Override
                 public void onInterstitialDisplayed(Ad ad) {
