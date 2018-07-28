@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ADmobule</string>
+
+    <string name="todo">TODO</string>
+    <string name="discription1">Launch the escape plan step by step and break out</string>
+    <string name="discription2">The picture of the game is gorgeous and exquisite</string>
+    <string name="ad_attribution">Ad</string>
+    <string name="font">font.ttf</string>
+
+</resources>

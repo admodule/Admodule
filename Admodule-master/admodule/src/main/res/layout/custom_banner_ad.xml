@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/adViewLayout"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.13"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="2dp">
+
+        <ImageView
+            android:id="@+id/appicon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="3dp"
+        android:layout_weight="0.6">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_Apptitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:text="AppName"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <RatingBar
+                android:id="@+id/ratingbar1"
+                style="@style/customRatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_Apptitle"
+                android:layout_centerVertical="true"
+                android:numStars="5"
+                android:paddingTop="3dp"
+                android:rating="3.5"
+                android:stepSize="0.5"
+                android:theme="@style/RatingBar"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txt_descrip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_Apptitle"
+                android:maxLines="2"
+                android:paddingLeft="1dp"
+                android:textColor="@color/colorText"
+                android:textSize="10sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2">
+
+        <Button
+            android:id="@+id/btn_install"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/colorGreen"
+            android:text="Install"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
+</LinearLayout>

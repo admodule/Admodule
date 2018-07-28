@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#47b453</color>
+    <color name="colorPrimaryDark">#47b453</color>
+    <color name="colorAccent">#33334C</color>
+
+    <color name="colorGreen">#47b453</color>
+    <color name="colorText">#4a4b4a</color>
+    <color name="white">#FFF</color>
+    <color name="blue">#2583ff</color>
+    <color name="off_white">#FAFAFA</color>
+    <color name="off_white_dark">#BDBDBD</color>
+    <color name="main_back_transparent">#50000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="rate_empty">#757575</color>
+    <color name="rate_filled">#457295</color>
+    <color name="bg_bottom">#A52714</color>
+</resources>
