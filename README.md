@@ -68,4 +68,4 @@ Add it in your APP build.gradle at the end of repositories:
       * Custom Advertising :
            CustomAds.bannerAds(layout);
            CustomAds.interstitialAds(1);
-           CustomAds.dialogAds(1);
+           CustomAds.dialogAds(activity,1);
