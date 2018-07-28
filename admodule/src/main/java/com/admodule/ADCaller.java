@@ -3,7 +3,6 @@ package com.admodule;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -12,44 +11,29 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.admodule.caller.GoogleAds;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.util.Util;
 import com.admodule.classes.Constants;
 import com.admodule.classes.DataProvider;
-import com.admodule.customad.AdManager;
 import com.admodule.customad.BannerAdClass;
-import com.admodule.customad.FbADmanager;
 import com.admodule.customad.InterstrialAdActivity;
-import com.admodule.customad.NativeAdClass;
-import com.admodule.interfaceclass.FacebookCallBackEvent;
-import com.admodule.interfaceclass.GoogleCallBackEvent;
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
 import com.facebook.ads.AdSettings;
-import com.facebook.ads.InterstitialAdListener;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 
 import java.io.File;
 import java.util.Random;
 
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 /**
@@ -86,10 +70,10 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                 ApplicationInfo ai = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
                 Bundle bundle = ai.metaData;
 
-                Utills.google_banner_id = bundle.getString("google_banner_id");
-                Utills.google_interstitial_id = bundle.getString("google_interstitial_id");
-                Utills.facebook_banner_id = bundle.getString("facebook_banner_id");
-                Utills.facebook_interstitial_id = bundle.getString("facebook_interstitial_id");
+                Constants.google_banner_id = bundle.getString("google_banner_id");
+                Constants.google_interstitial_id = bundle.getString("google_interstitial_id");
+                Constants.facebook_banner_id = bundle.getString("facebook_banner_id");
+                Constants.facebook_interstitial_id = bundle.getString("facebook_interstitial_id");
 
             } catch (Throwable t) {
                 t.printStackTrace();
@@ -125,7 +109,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
 
     public void PreloardGoogleAD() {
         try {
-            this.google_InterstrialAdID = Utills.google_interstitial_id;
+            this.google_InterstrialAdID = Constants.google_interstitial_id;
 
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 //-----Google Ad First
@@ -146,7 +130,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
 
     public void PreloardFacebookAD() {
         try {
-            this.fb_InterstrialAdID = Utills.facebook_interstitial_id;
+            this.fb_InterstrialAdID = Constants.facebook_interstitial_id;
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 //----------------Fb Ad First
                 AdSettings.addTestDevice("cf4cf9f0-e8cb-43db-a1e0-3bbbdb028f3e");

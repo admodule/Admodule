@@ -101,7 +101,7 @@ public class InitlaizeApiData {
                     dp.setDescription(description);
 
                     boolean isinstall = isAppInstalled(split[1], activity);
-                    if (!isinstall && !Utills.packages.contains(split[1])) {
+                    if (!isinstall && !Constants.packages.contains(split[1])) {
                         if (index.equals("i")) {
                             downloadImage(dp.getImageurl(), "I_" + dp.getAppname(), activity);
                             Constants.interstitialList.add(dp);

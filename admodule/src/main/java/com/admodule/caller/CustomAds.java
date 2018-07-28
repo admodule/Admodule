@@ -3,8 +3,6 @@ package com.admodule.caller;
 import android.view.ViewGroup;
 
 import com.admodule.ADCaller;
-import com.admodule.BuildConfig;
-import com.admodule.Utills;
 
 public class CustomAds {
     public static void bannerAds(ViewGroup bannerAds) {

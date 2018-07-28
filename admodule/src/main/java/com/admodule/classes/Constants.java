@@ -4,6 +4,8 @@ package com.admodule.classes;
 import android.os.Environment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Constants {
    
@@ -14,5 +16,12 @@ public class Constants {
    public static ArrayList<DataProvider> interstitialList = new ArrayList<>();
    public static ArrayList<DataProvider> bannerList = new ArrayList<>();
    public static ArrayList<DataProvider> dialogList = new ArrayList<>();
+
+   public static List<String> packages = Arrays.asList("");
+
+   public static String google_banner_id;
+   public static String google_interstitial_id;
+   public static String facebook_banner_id;
+   public static String facebook_interstitial_id;
 
 }
