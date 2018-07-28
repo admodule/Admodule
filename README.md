@@ -12,7 +12,7 @@ Add it in your root build.gradle at the end of repositories:
   
 Add it in your APP build.gradle at the end of repositories:
 
-      implementation 'com.github.admodule:Admodule:1.6'
+      implementation 'com.github.admodule:Admodule:1.7'
 
 => AndroidManifest.xml
 
