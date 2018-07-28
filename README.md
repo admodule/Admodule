@@ -12,9 +12,15 @@ Add it in your root build.gradle at the end of repositories:
   
 Add it in your APP build.gradle at the end of repositories:
 
-      implementation 'com.github.admodule:Admodule:1.4'
+      implementation 'com.github.admodule:Admodule:1.6'
 
 => AndroidManifest.xml
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+=>Application tag inside added lines.
 
         <meta-data
             android:name="google_banner_id"
