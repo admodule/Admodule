@@ -1,5 +1,7 @@
 package com.admodule.caller;
 
+import android.app.Activity;
+import android.content.Context;
 import android.view.ViewGroup;
 
 import com.admodule.ADCaller;
@@ -13,7 +15,7 @@ public class CustomAds {
         ADCaller.getInstance().PreloardCustomAD(RandomMaxNo);
     }
 
-    public static void dialogAds(int adsShow) {
-        ADCaller.getInstance().dialogShow(adsShow);
+    public static void dialogAds(Activity activity, int adsShow) {
+        ADCaller.getInstance().dialogShow(activity, adsShow);
     }
 }

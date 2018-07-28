@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.admodule.ADCaller;
+import com.admodule.caller.CustomAds;
 import com.admodule.caller.GoogleAds;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 //            CustomAds.bannerAds(bannerAds);
 //            CustomAds.interstitialAds(1);
 //
-//            CustomAds.dialogAds(1);
+        CustomAds.dialogAds(this, 1);
     }
 
 }

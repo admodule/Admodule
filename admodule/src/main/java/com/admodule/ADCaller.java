@@ -3,6 +3,7 @@ package com.admodule;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -94,11 +95,11 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
         }
     }
 
-    public void LoardBannerAd(ViewGroup viewGroup, String BannerId, String type,int mainType) {
+    public void LoardBannerAd(ViewGroup viewGroup, String BannerId, String type, int mainType) {
         try {
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 BannerAdClass bannerAdClass = new BannerAdClass(activity);
-                bannerAdClass.ShowBannerAd(viewGroup, BannerId, type,mainType);
+                bannerAdClass.ShowBannerAd(viewGroup, BannerId, type, mainType);
             }
         } catch (Exception e) {
         }
@@ -153,7 +154,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                     interstitialAd.show();
                 } else {
                     PreloardGoogleAD();
-                    if (mainType == 1 || mainType==3) {
+                    if (mainType == 1 || mainType == 3) {
                         facebookInterstitialShow(adsShow, 1);
                     } else if (mainType == 2) {
                         customInterstrial(adsShow, 2);
@@ -211,8 +212,8 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                         activity.startActivity(intent);
                     }
                 } else {
-                    if(mainType==3){
-                        googleInterstitialShow(adsNo,3);
+                    if (mainType == 3) {
+                        googleInterstitialShow(adsNo, 3);
                     }
                 }
             }
@@ -221,7 +222,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
         }
     }
 
-    public void dialogShow(int adsShow) {
+    public void dialogShow(final Activity activity, int adsShow) {
         Random random = new Random();
         int no = random.nextInt(adsShow);
         if (no == 0) {
@@ -283,7 +284,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                     dialog.show();
                 } else {
                     dialog.dismiss();
-                    dialogShow(adsShow);
+                    dialogShow(activity, adsShow);
                 }
             }
         }
