@@ -24,7 +24,6 @@ import cz.msebera.android.httpclient.Header;
 import static android.content.Context.MODE_PRIVATE;
 
 
-
 public class InitlaizeApiData {
 
     private Activity activity;
@@ -125,25 +124,30 @@ public class InitlaizeApiData {
     }
 
     private void downloadImage(String url, String appname, Activity activity) {
-        File direct = new File(Constants.PARENT_DIR + Constants.AD_DIR);
+        try {
+            File direct = new File(Constants.AD_DIR);
 
-        if (!direct.exists()) {
-            direct.mkdirs();
-        }
-        if (!new File(direct + "/" + appname + ".jpg").exists()) {
-            DownloadManager mgr = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
-
-            Uri downloadUri = Uri.parse(url);
-            DownloadManager.Request request = new DownloadManager.Request(downloadUri);
-
-            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
-                    .setAllowedOverRoaming(false).setTitle(appname + ".jpg")
-                    .setDescription("Downloading " + appname + ".jpg")
-                    .setDestinationInExternalPublicDir(Constants.AD_DIR, appname + ".jpg");
-
-            if (mgr != null) {
-                mgr.enqueue(request);
+            if (!direct.exists()) {
+                direct.mkdirs();
             }
+
+            if (!new File(direct + "/" + appname + ".jpg").exists()) {
+                DownloadManager mgr = (DownloadManager) activity.getSystemService(Context.DOWNLOAD_SERVICE);
+
+                Uri downloadUri = Uri.parse(url);
+                DownloadManager.Request request = new DownloadManager.Request(downloadUri);
+
+                request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
+                        .setAllowedOverRoaming(false).setTitle(appname + ".jpg")
+                        .setDescription("Downloading " + appname + ".jpg")
+                        .setDestinationInExternalPublicDir(Constants.AD_DIR, appname + ".jpg");
+
+                if (mgr != null) {
+                    mgr.enqueue(request);
+                }
+            }
+        } catch (Exception e) {
+
         }
     }
 }
