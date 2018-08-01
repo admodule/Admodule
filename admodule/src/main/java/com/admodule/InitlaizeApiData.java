@@ -23,14 +23,13 @@ import cz.msebera.android.httpclient.Header;
 
 import static android.content.Context.MODE_PRIVATE;
 
-/**
- * Created by pratik on 26-04-18.
- */
+
 
 public class InitlaizeApiData {
 
     private Activity activity;
     private String Api = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=892bdb8d0e6519769124a90c84643290&photoset_id=72157671119679828&extras=description%2C+url_m%2C+url_o%2C+url_l&per_page=20&page=1&format=json&nojsoncallback=1";
+
 
     InitlaizeApiData(Activity activity) {
         this.activity = activity;

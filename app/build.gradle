@@ -4,11 +4,14 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.advertising"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        manifestPlaceholders = [onesignal_app_id               : "5b3c7a60-2b69-49e7-95cf-78ce784e7bba",
+                                onesignal_google_project_number: "REMOTE"]
     }
     buildTypes {
         release {

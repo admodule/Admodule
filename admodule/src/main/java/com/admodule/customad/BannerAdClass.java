@@ -73,6 +73,7 @@ public class BannerAdClass {
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
+                viewGroup.removeAllViews();
                 viewGroup.addView(mAdView);
                 viewGroup.setVisibility(View.VISIBLE);
             }
@@ -184,6 +185,8 @@ public class BannerAdClass {
                     btn_install.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+
+                            Constants.Install_From="Banner";
                             String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getPackagename();
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));

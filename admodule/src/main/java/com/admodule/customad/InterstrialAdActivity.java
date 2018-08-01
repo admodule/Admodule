@@ -38,6 +38,7 @@ public class InterstrialAdActivity extends AppCompatActivity {
     private ImageView mIvClose;
     RelativeLayout rootview;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,8 @@ public class InterstrialAdActivity extends AppCompatActivity {
     }
 
     private void init() {
+
+
         mAdContainerLayout = findViewById(R.id.adContainerLayout);
         mHeaderLayout = findViewById(R.id.headerLayout);
         mIvImage1 = findViewById(R.id.iv_image1);
@@ -101,6 +104,8 @@ public class InterstrialAdActivity extends AppCompatActivity {
                     rootview.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+
+                            Constants.Install_From="InterstitialAd";
                             String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getPackagename();
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));

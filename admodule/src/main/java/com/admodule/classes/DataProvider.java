@@ -37,4 +37,15 @@ public class DataProvider {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        boolean sameSame = false;
+
+        if (object != null && object instanceof DataProvider) {
+            sameSame = this.getPackagename().equals(((DataProvider) object).getPackagename());
+        }
+
+        return sameSame;
+    }
 }

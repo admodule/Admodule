@@ -22,6 +22,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.admodule.classes.AppInstallReciever;
 import com.bumptech.glide.Glide;
 import com.admodule.classes.Constants;
 import com.admodule.classes.DataProvider;
@@ -31,6 +32,7 @@ import com.facebook.ads.AdSettings;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.onesignal.OneSignal;
 
 import java.io.File;
 import java.util.Random;
@@ -68,6 +70,14 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
             this.activity = activity;
 
             try {
+                OneSignal.startInit(this.activity)
+                        .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.None)
+                        .init();
+
+                OneSignal.startInit(this.activity)
+                        .setNotificationReceivedHandler(new NotificationReceiver())
+                        .init();
+
                 ApplicationInfo ai = activity.getPackageManager().getApplicationInfo(activity.getPackageName(), PackageManager.GET_META_DATA);
                 Bundle bundle = ai.metaData;
 
@@ -76,6 +86,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                 Constants.facebook_banner_id = bundle.getString("facebook_banner_id");
                 Constants.facebook_interstitial_id = bundle.getString("facebook_interstitial_id");
 
+                activity.sendBroadcast(new Intent(activity, AppInstallReciever.class));
             } catch (Throwable t) {
                 t.printStackTrace();
             }
@@ -267,6 +278,8 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                     appinstallbtn.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+
+                            Constants.Install_From="Dialogue";
                             String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getPackagename();
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));
