@@ -145,7 +145,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
             this.fb_InterstrialAdID = Constants.facebook_interstitial_id;
             if (new ConnectionDetector(activity).isConnectingToInternet()) {
                 //----------------Fb Ad First
-                AdSettings.addTestDevice("cf4cf9f0-e8cb-43db-a1e0-3bbbdb028f3e");
+//                AdSettings.addTestDevice("cf4cf9f0-e8cb-43db-a1e0-3bbbdb028f3e");
                 fbInterstitial = new com.facebook.ads.InterstitialAd(activity, fb_InterstrialAdID);
                 fbInterstitial.loadAd();
             }
@@ -229,7 +229,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                 }
             }
         } catch (Exception e) {
-            customInterstrial(adsNo, mainType);//---loard google if failed custom ad
+//            customInterstrial(adsNo, mainType);//---loard google if failed custom ad
         }
     }
 
@@ -279,7 +279,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                         @Override
                         public void onClick(View view) {
 
-                            Constants.Install_From="Dialogue";
+                            Constants.Install_From = "Dialogue";
                             String url = "https://play.google.com/store/apps/details?id=" + dataProvider.getPackagename();
                             Intent i = new Intent(Intent.ACTION_VIEW);
                             i.setData(Uri.parse(url));
