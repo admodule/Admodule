@@ -14,6 +14,7 @@ public class Constants {
    public static final String AD_DIR = Environment.getExternalStorageDirectory().toString() + "/.adMob/";
    public static String ADDOWNLOAD = "ad_download";
    public static String Install_From=null; //
+   public static String ISDownLoadComplete="isdownloadcomplete";
 
    public static ArrayList<DataProvider> interstitialList = new ArrayList<>();
    public static ArrayList<DataProvider> bannerList = new ArrayList<>();

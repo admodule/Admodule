@@ -26,20 +26,21 @@ public class MainActivity extends AppCompatActivity {
         ADCaller.getInstance().init(MainActivity.this);
 
 
-//        GoogleAds.bannerAds(bannerAds);
-//        GoogleAds.interstitialAds(1);
+        GoogleAds.bannerAds(bannerAds);
+        GoogleAds.interstitialAds(1);
+
         showAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomAds.interstitialAds(1);
+                GoogleAds.interstitialAds(1);
             }
         });
 //            FacebookAds.bannerAds(bannerAds);
 //            FacebookAds.interstitialAds(1);
 //
-        CustomAds.bannerAds(bannerAds);
-        CustomAds.interstitialAds(1);
-        CustomAds.dialogAds(this, 1);
+//        CustomAds.bannerAds(bannerAds);
+//        CustomAds.interstitialAds(1);
+//        CustomAds.dialogAds(this, 1);
     }
 
 }

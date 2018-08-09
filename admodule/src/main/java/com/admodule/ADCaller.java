@@ -51,7 +51,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
     private String fb_InterstrialAdID, google_InterstrialAdID;
 
     private static final int MY_PERMISSIONS_REQUEST_CODE = 1;
-    String[] perms = {"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.CAMERA"};
+    String[] perms = {"android.permission.WRITE_EXTERNAL_STORAGE"};
 
     public ADCaller() {
 
@@ -350,6 +350,7 @@ public class ADCaller implements ActivityCompat.OnRequestPermissionsResultCallba
                     }
                 }
                 break;
+
         }
 
     }
